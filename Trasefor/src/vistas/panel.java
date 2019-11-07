@@ -145,7 +145,7 @@ public class panel extends javax.swing.JFrame {
 
     private void btnMenuNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuNuevoActionPerformed
         ClienteAgregar agr = new ClienteAgregar();
-        contenedor.add(agr);
+        panel.contenedor.add(agr);
         agr.setVisible(true);
         
     }//GEN-LAST:event_btnMenuNuevoActionPerformed

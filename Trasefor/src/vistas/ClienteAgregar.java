@@ -136,7 +136,7 @@ public class ClienteAgregar extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        this.dispose();
+    this.dispose();       
     }//GEN-LAST:event_btnCancelarActionPerformed
 
 
