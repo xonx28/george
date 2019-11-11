@@ -5,6 +5,12 @@
  */
 package vistas;
 
+import clases.conexion;
+import com.mysql.jdbc.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Jorge
@@ -30,7 +36,7 @@ public class login extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         lblClave = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        txtClave = new javax.swing.JPasswordField();
         btnAcceder = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
 
@@ -63,16 +69,17 @@ public class login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnAcceder)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                        .addComponent(btnSalir))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalir)
+                        .addGap(27, 27, 27))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblClave, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                            .addComponent(jPasswordField1))))
+                            .addComponent(txtClave))))
                 .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
@@ -85,7 +92,7 @@ public class login extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblClave, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAcceder)
@@ -97,7 +104,22 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAccederActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAccederActionPerformed
-        // Creo instancia
+//Creamos la instancia de conexcion a la base de datos
+        conexion SQL = new conexion();
+        //Creamos el string para consultar los usuarios
+        String query = "SELECT * FROM usuario WHERE";
+        query += " apodo = '" + this.txtUsuario.getText() + "'";
+        query += " AND clave = '" + new String(this.txtClave.getPassword()) + "';";
+        try {
+            //Ejecutamos la consulta
+            PreparedStatement pstm;
+            pstm = (PreparedStatement) conexion.conn.prepareStatement(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+// Creo instancia 
         panel p = new panel();
         p.setVisible(true);
         this.dispose();
@@ -147,9 +169,9 @@ public class login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAcceder;
     private javax.swing.JButton btnSalir;
-    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JLabel lblClave;
     private javax.swing.JLabel lblUsuario;
+    private javax.swing.JPasswordField txtClave;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

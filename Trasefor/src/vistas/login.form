@@ -28,18 +28,19 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="btnAcceder" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="191" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="btnSalir" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="lblUsuario" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                           <Component id="lblClave" alignment="0" min="-2" pref="65" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="txtUsuario" pref="197" max="32767" attributes="0"/>
-                          <Component id="jPasswordField1" max="32767" attributes="0"/>
+                          <Component id="txtClave" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -58,7 +59,7 @@
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblClave" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
-                  <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtClave" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -83,7 +84,7 @@
         <Property name="text" type="java.lang.String" value="Usuario"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+    <Component class="javax.swing.JPasswordField" name="txtClave">
     </Component>
     <Component class="javax.swing.JButton" name="btnAcceder">
       <Properties>
